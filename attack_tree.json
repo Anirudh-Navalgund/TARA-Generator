@@ -1,0 +1,3828 @@
+{
+  "trees": [
+    {
+      "attack_surface": "CAN Bus Injection Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Crafting malformed CAN frames",
+            "Exploiting arbitration mechanism flaws"
+          ],
+          "Interface Abuse": [
+            "Direct access via headlight wiring",
+            "OBD-II port exploitation"
+          ],
+          "User Trickery": [
+            "Phishing for diagnostic tool credentials",
+            "Social engineering to gain physical access"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploiting default ECU access rights",
+            "Leveraging unprotected service modes"
+          ],
+          "Backdoor Access": [
+            "Using hardcoded credentials in ECUs",
+            "Activating undocumented debug interfaces"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Injecting high-frequency dominant messages",
+            "Spoofing low-ID arbitration to block traffic"
+          ],
+          "Crash Triggering": [
+            "Sending protocol-invalid frames to ECUs",
+            "Triggering buffer exhaustion in message handlers"
+          ],
+          "Buffer Overrun": [
+            "Overloading CAN receive buffers",
+            "Exploiting lack of input validation in ECUs"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting diagnostic logs via CAN",
+            "Dumping event logs from ECUs"
+          ],
+          "Session Hijack": [
+            "Intercepting authentication exchanges",
+            "Replaying valid session tokens"
+          ],
+          "Man-in-the-Middle": [
+            "Relaying CAN messages between ECUs",
+            "Altering telemetry data in transit"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Injecting malicious firmware via update process",
+            "Replacing legitimate update with trojanized file"
+          ],
+          "Rollback Attack": [
+            "Forcing downgrade to vulnerable firmware",
+            "Bypassing version checks during update"
+          ],
+          "Malicious Binary Injection": [
+            "Uploading unauthorized code to ECU memory",
+            "Exploiting insecure bootloader for code execution"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Infotainment System Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "CAN Bus Message Injection",
+            "Bluetooth Stack Vulnerability"
+          ],
+          "Interface Abuse": [
+            "USB Port Exploit",
+            "WiFi Direct Connection Attack"
+          ],
+          "User Trickery": [
+            "Malicious Media File Execution",
+            "Phishing via Infotainment Apps"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded Credentials Exploit",
+            "Privilege Creep via App Update"
+          ],
+          "Backdoor Access": [
+            "Hidden Debug Interface Activation",
+            "Unvalidated Access Token Usage"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "CAN Message Flood",
+            "Bluetooth Connection Saturation"
+          ],
+          "Crash Triggering": [
+            "Malformed Media File Crash",
+            "Malformed Network Packet Injection"
+          ],
+          "Buffer Overrun": [
+            "Audio Buffer Overflow",
+            "Navigation Data Overflow"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Credential Log Extraction",
+            "User Activity Log Download"
+          ],
+          "Session Hijack": [
+            "Active Bluetooth Session Capture",
+            "Hijack WiFi Streaming Session"
+          ],
+          "Man-in-the-Middle": [
+            "Intercepted Firmware Update",
+            "Intercepted App Data Sync"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious Firmware Over-the-Air Update",
+            "Corrupted USB Update Injection"
+          ],
+          "Rollback Attack": [
+            "Install Vulnerable Previous Firmware",
+            "Bypass Update Integrity Check"
+          ],
+          "Malicious Binary Injection": [
+            "Inject Rogue Executable via Debug Port",
+            "Replace System Binary via Exploit"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "OBD-II Port Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Malformed OBD-II command injection",
+            "Exploiting unsupported diagnostic service requests"
+          ],
+          "Interface Abuse": [
+            "Unauthorized Bluetooth pairing with wireless dongle",
+            "Direct CAN bus message injection via physical access"
+          ],
+          "User Trickery": [
+            "Phishing user to install malicious OBD-II app",
+            "Social engineering to gain physical access to port"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Accessing unrestricted diagnostic functions",
+            "Escalating from read-only to write access"
+          ],
+          "Backdoor Access": [
+            "Using hardcoded credentials in dongle firmware",
+            "Exploiting undocumented maintenance mode"
+          ],
+          "Unvalidated Access": [
+            "Bypassing authentication on OBD-II interface",
+            "Leveraging insecure pairing process"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flooding CAN bus with diagnostic requests",
+            "Continuous OBD-II session establishment"
+          ],
+          "Crash Triggering": [
+            "Sending malformed frames to crash ECU",
+            "Triggering buffer exhaustion in OBD-II stack"
+          ],
+          "Buffer Overrun": [
+            "Exceeding input buffer with oversized payload",
+            "Stack smashing via crafted OBD-II messages"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting diagnostic logs from ECUs",
+            "Downloading stored event data via OBD-II"
+          ],
+          "Session Hijack": [
+            "Intercepting active diagnostic session",
+            "Replaying authentication tokens"
+          ],
+          "Man-in-the-Middle": [
+            "Proxying OBD-II traffic over wireless dongle",
+            "Capturing credentials during remote diagnostics"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Uploading malicious firmware via OBD-II update process",
+            "Replacing legitimate update with crafted binary"
+          ],
+          "Rollback Attack": [
+            "Downgrading firmware to vulnerable version",
+            "Forcing ECU to accept outdated signed image"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting executable payload into dongle memory",
+            "Overwriting bootloader through OBD-II interface"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "ECU Firmware Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "CAN Bus Injection",
+            "UDS Service Abuse"
+          ],
+          "Interface Abuse": [
+            "Wireless Interface Exploit",
+            "OBD-II Port Attack"
+          ],
+          "User Trickery": [
+            "Phishing via Infotainment",
+            "Malicious USB Device"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded Credentials",
+            "Privilege Creep"
+          ],
+          "Backdoor Access": [
+            "Unvalidated Access",
+            "Hidden Debug Interface"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "CAN Frame Flooding",
+            "Diagnostic Request Overload"
+          ],
+          "Crash Triggering": [
+            "Malformed Packet Injection",
+            "Faulty Firmware Update"
+          ],
+          "Buffer Overrun": [
+            "Oversized Payload Injection",
+            "Stack Overflow Exploit"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized Log Access",
+            "Remote Log Extraction"
+          ],
+          "Session Hijack": [
+            "Replay Attack",
+            "Session Token Theft"
+          ],
+          "Man-in-the-Middle": [
+            "Network Sniffing",
+            "TLS Downgrade Attack"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious Update Server",
+            "Update File Replacement"
+          ],
+          "Rollback Attack": [
+            "Version Downgrade Exploit",
+            "Old Vulnerable Firmware Injection"
+          ],
+          "Malicious Binary Injection": [
+            "Payload Embedding",
+            "Bootloader Exploit"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Bluetooth Interface Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Malformed L2CAP Packet Injection",
+            "Unauthorized OBEX Command Execution"
+          ],
+          "Interface Abuse": [
+            "Filesystem Mount via Serial Port Profile",
+            "Exploiting Open Unpaired Ports"
+          ],
+          "User Trickery": [
+            "Social Engineering for Pairing",
+            "Phishing via Bluetooth Messages"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Privilege Creep via Profile Misassignment",
+            "Unvalidated Access to Restricted Functions"
+          ],
+          "Backdoor Access": [
+            "Hardcoded Credentials in Firmware",
+            "Hidden Debug Interfaces"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flooding Bluetooth Ports with Data",
+            "Repeated Pairing Requests to Exhaust Resources"
+          ],
+          "Crash Triggering": [
+            "Malformed Packet Causing Stack Crash",
+            "Triggering BLE Deadlock State"
+          ],
+          "Buffer Overrun": [
+            "Oversized Bluetooth Message Injection",
+            "Directory Name Fuzzing"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting Connection Logs",
+            "Dumping System Event Records"
+          ],
+          "Session Hijack": [
+            "Intercepting PBAP Synchronization",
+            "Hijacking Active Bluetooth Session"
+          ],
+          "Man-in-the-Middle": [
+            "Relay Attack on Pairing Process",
+            "Sniffing Unencrypted Bluetooth Traffic"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supplying Malicious Firmware Update",
+            "Manipulating Update Delivery Channel"
+          ],
+          "Rollback Attack": [
+            "Forcing Downgrade to Vulnerable Firmware",
+            "Exploiting Lack of Secure Boot"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting Crafted Application via Mounted Filesystem",
+            "Partial Write Access Exploitation"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive Wi-Fi Module",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Abuse of WPA2 handshake flaws",
+            "Replay attacks on authentication frames"
+          ],
+          "Interface Abuse": [
+            "Exploiting open debug ports",
+            "Unauthorized API endpoint access"
+          ],
+          "User Trickery": [
+            "Phishing captive portal credentials",
+            "Social engineering for Wi-Fi pairing"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Privilege creep via excessive default rights",
+            "Unvalidated access to restricted commands"
+          ],
+          "Backdoor Access": [
+            "Hardcoded administrative credentials",
+            "Hidden maintenance interfaces"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Beacon frame flooding",
+            "Deauthentication frame spamming"
+          ],
+          "Crash Triggering": [
+            "Malformed packet injection",
+            "Resource exhaustion via malformed requests"
+          ],
+          "Buffer Overrun": [
+            "Oversized management frame delivery",
+            "Malformed SSID broadcast"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extraction of stored Wi-Fi credentials",
+            "Harvesting connection history logs"
+          ],
+          "Session Hijack": [
+            "Intercepting active session tokens",
+            "Side-channel leakage of session keys"
+          ],
+          "Man-in-the-Middle": [
+            "Rogue access point deployment",
+            "SSL stripping on Wi-Fi traffic"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supplying malicious firmware via OTA",
+            "Exploiting unsigned update process"
+          ],
+          "Rollback Attack": [
+            "Downgrading to vulnerable firmware version",
+            "Bypassing version checks in updater"
+          ],
+          "Malicious Binary Injection": [
+            "Direct flash memory overwrite",
+            "Payload injection via update utility"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Telematics Control Unit Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit unsecured cellular protocol",
+            "Abuse weak authentication in WiFi/Bluetooth"
+          ],
+          "Interface Abuse": [
+            "Exploit open diagnostic port",
+            "Attack exposed HTTP/REST API"
+          ],
+          "User Trickery": [
+            "Phishing via telematics app",
+            "Social engineering to gain remote access"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit excessive default privileges",
+            "Privilege creep through software updates"
+          ],
+          "Backdoor Access": [
+            "Leverage hardcoded credentials",
+            "Exploit undocumented debug interface"
+          ],
+          "Unvalidated Access": [
+            "Bypass authentication checks",
+            "Exploit missing access control in services"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood CAN bus with malformed messages",
+            "Overload cellular interface with requests"
+          ],
+          "Crash Triggering": [
+            "Exploit buffer overrun in protocol handler",
+            "Send malformed update to crash system"
+          ],
+          "Resource Exhaustion": [
+            "Consume all available storage",
+            "Exhaust CPU with repeated requests"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract sensitive logs via debug port",
+            "Exploit unsecured log storage"
+          ],
+          "Session Hijack": [
+            "Steal session tokens from memory",
+            "Replay captured authentication messages"
+          ],
+          "Man-in-the-Middle": [
+            "Intercept cellular communication",
+            "Inject malicious relay between TCU and backend"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Replace OTA update with malicious firmware",
+            "Exploit lack of signature verification"
+          ],
+          "Rollback Attack": [
+            "Force downgrade to vulnerable firmware",
+            "Exploit update process to install old version"
+          ],
+          "Malicious Binary Injection": [
+            "Inject payload via update mechanism",
+            "Exploit insecure bootloader to run arbitrary code"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "V2V Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "DSRC Replay Attack",
+            "CAN Bus Masquerading"
+          ],
+          "Interface Abuse": [
+            "Bluetooth Unauthorized Access",
+            "WiFi Hotspot Exploitation"
+          ],
+          "User Trickery": [
+            "Phishing via Infotainment",
+            "Malicious Mobile App Pairing"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Unvalidated Access to ECUs",
+            "Privilege Creep in Telematics"
+          ],
+          "Backdoor Access": [
+            "Hardcoded Credentials in Firmware",
+            "Hidden Debug Interfaces"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "DSRC Packet Flooding",
+            "CAN Bus Frame Overload"
+          ],
+          "Crash Triggering": [
+            "Buffer Overrun in V2V Stack",
+            "Malformed Message Injection"
+          ],
+          "Buffer Overrun": [
+            "Stack Overflow in OBU",
+            "Heap Corruption via Malformed V2V Message"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized Access to Telemetry Logs",
+            "Dumping Paired Device History"
+          ],
+          "Session Hijack": [
+            "V2V Session Token Theft",
+            "Man-in-the-Middle on Cellular V2V"
+          ],
+          "Man-in-the-Middle": [
+            "TLS Downgrade Attack",
+            "Certificate Spoofing"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious Firmware via OTA Update",
+            "Update File Hash Collision"
+          ],
+          "Rollback Attack": [
+            "Downgrade to Vulnerable Firmware",
+            "Reinstallation of Old Exploitable Version"
+          ],
+          "Malicious Binary Injection": [
+            "Custom Payload in OBU Firmware",
+            "Rootkit Installation via V2V Update"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "V2I Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Replay Attack on V2I Protocol",
+            "Malformed V2I Message Injection"
+          ],
+          "Interface Abuse": [
+            "Exploitation of Unsecured Wireless Channel",
+            "Unauthorized Access via Diagnostic Port"
+          ],
+          "User Trickery": [
+            "Phishing via In-Vehicle Display",
+            "Social Engineering of Maintenance Staff"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Privilege Creep via Overbroad Access Rights",
+            "Unvalidated Access to V2I Control Functions"
+          ],
+          "Backdoor Access": [
+            "Exploitation of Hardcoded Credentials",
+            "Use of Hidden Debug Interfaces"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Broadcast Storm on V2I Channel",
+            "Beacon Spamming to Overload Infrastructure"
+          ],
+          "Crash Triggering": [
+            "Malformed Packet Causing System Crash",
+            "Resource Exhaustion via Faulty Requests"
+          ],
+          "Buffer Overrun": [
+            "Oversized V2I Message Injection",
+            "Stack Overflow in Communication Handler"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extraction of Stored Telemetry Logs",
+            "Unauthorized Download of System Event Logs"
+          ],
+          "Session Hijack": [
+            "Stealing Active Session Tokens",
+            "Intercepting Authentication Handshakes"
+          ],
+          "Man-in-the-Middle": [
+            "Eavesdropping on V2I Data Streams",
+            "Altering Messages in Transit"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supplying Malicious Firmware Update",
+            "Altering Update File in Transit"
+          ],
+          "Rollback Attack": [
+            "Forcing Reversion to Vulnerable Firmware",
+            "Exploiting Lack of Update Integrity Checks"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting Rogue Executable into Firmware",
+            "Modifying Bootloader for Persistent Access"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "GPS Spoofing Compromise in Automotive System",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Replay Attack on GPS Signal",
+            "Crafted GPS Message Injection"
+          ],
+          "Interface Abuse": [
+            "Wireless Interface Hijack",
+            "Physical Access to GPS Receiver"
+          ],
+          "User Trickery": [
+            "Social Engineering for GPS Settings Change",
+            "Phishing for Navigation App Credentials"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Unrestricted Access to GPS Firmware",
+            "Excessive Privileges for Third-Party Apps"
+          ],
+          "Backdoor Access": [
+            "Hardcoded Credentials in GPS Module",
+            "Hidden Debug Interfaces"
+          ],
+          "Unvalidated Access": [
+            "Bypassing Authentication for GPS Control",
+            "Privilege Creep via Software Update"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Continuous Fake GPS Signal Transmission",
+            "Jamming Legitimate GPS Signals"
+          ],
+          "Crash Triggering": [
+            "Malformed GPS Data Injection",
+            "Buffer Overrun in GPS Parser"
+          ],
+          "Buffer Overrun": [
+            "Oversized GPS Packet Delivery",
+            "Malformed NMEA Sentence Injection"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extraction of GPS Navigation Logs",
+            "Unauthorized Access to Location History"
+          ],
+          "Session Hijack": [
+            "Intercepting GPS Communication Session",
+            "Session Token Theft from Navigation System"
+          ],
+          "Man-in-the-Middle": [
+            "Relay Attack on GPS Data Stream",
+            "Injection of Malicious Proxy in GPS Path"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious GPS Firmware Update Delivery",
+            "Corrupted Update Package Injection"
+          ],
+          "Rollback Attack": [
+            "Downgrade GPS Firmware to Vulnerable Version",
+            "Exploit Old Firmware Flaws"
+          ],
+          "Malicious Binary Injection": [
+            "Custom Payload in GPS Firmware",
+            "Rootkit Deployment in GPS Module"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "ADAS Sensors Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "UDP Port Payload Spoofing",
+            "CAN Bus Command Injection"
+          ],
+          "Interface Abuse": [
+            "Wireless Interface Exploit",
+            "Sensor Fusion Algorithm Manipulation"
+          ],
+          "User Trickery": [
+            "Phishing for Sensor Access",
+            "Malicious Mobile App Control"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded Credentials Exploit",
+            "Privilege Creep via Software Update"
+          ],
+          "Backdoor Access": [
+            "Unvalidated Access via Debug Interface",
+            "Hidden Service Activation"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Sensor Data Overload",
+            "Wireless Channel Saturation"
+          ],
+          "Crash Triggering": [
+            "Malformed Packet Injection",
+            "Fault Injection via IR Laser"
+          ],
+          "Buffer Overrun": [
+            "Oversized Data Frame Injection",
+            "Memory Exhaustion Attack"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized Access to Sensor Logs",
+            "Remote Log Extraction"
+          ],
+          "Session Hijack": [
+            "Intercept Sensor Communication Session",
+            "Replay Attack on Sensor Streams"
+          ],
+          "Man-in-the-Middle": [
+            "Relay Attack on Sensor Data",
+            "Protocol Downgrade for Eavesdropping"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supply Chain Firmware Injection",
+            "Malicious Update Server Redirection"
+          ],
+          "Rollback Attack": [
+            "Downgrade to Vulnerable Firmware",
+            "Exploit Unauthenticated Update Mechanism"
+          ],
+          "Malicious Binary Injection": [
+            "Direct Flash Memory Manipulation",
+            "Driver Layer Code Injection"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive Lidar System Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Replay Attacks on Lidar Communication Protocols",
+            "Malformed Packet Injection"
+          ],
+          "Interface Abuse": [
+            "Physical Port Access Exploitation",
+            "Wireless Interface Sniffing"
+          ],
+          "User Trickery": [
+            "Social Engineering to Gain Maintenance Access",
+            "Phishing for Lidar System Credentials"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded Credentials Exploitation",
+            "Privilege Creep via Legacy Accounts"
+          ],
+          "Backdoor Access": [
+            "Unvalidated Access through Debug Interfaces",
+            "Hidden Service Activation"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Excessive CAN Bus Messaging",
+            "Network Broadcast Storm"
+          ],
+          "Crash Triggering": [
+            "Malformed Point Cloud Data Injection",
+            "Adversarial Fog Attack"
+          ],
+          "Buffer Overrun": [
+            "Oversized Data Packet Submission",
+            "Continuous Sensor Data Overload"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized Access to Lidar Event Logs",
+            "Extraction of Diagnostic Data"
+          ],
+          "Session Hijack": [
+            "Intercepting Lidar Data Streams",
+            "Session Token Theft"
+          ],
+          "Man-in-the-Middle": [
+            "Relay Attack on Lidar Communication",
+            "Packet Sniffing between Lidar and ECU"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious Firmware Update Delivery",
+            "Update File Hash Collision"
+          ],
+          "Rollback Attack": [
+            "Downgrade to Vulnerable Firmware Version",
+            "Bypassing Update Verification"
+          ],
+          "Malicious Binary Injection": [
+            "Direct Flash Memory Manipulation",
+            "Payload Injection via Maintenance Tools"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive Radar System Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Replay attack on radar communication protocol",
+            "Manipulation of radar signal timing"
+          ],
+          "Interface Abuse": [
+            "Exploiting insecure diagnostic port",
+            "Unauthorized access via wireless interface"
+          ],
+          "User Trickery": [
+            "Phishing user to install malicious radar app",
+            "Social engineering to gain physical access"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploiting default admin credentials",
+            "Abusing excessive access rights"
+          ],
+          "Backdoor Access": [
+            "Leveraging undocumented debug interface",
+            "Utilizing hardcoded maintenance account"
+          ],
+          "Unvalidated Access": [
+            "Bypassing authentication checks",
+            "Forging access tokens"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Sending excessive CAN messages to radar ECU",
+            "Broadcasting malformed radar packets"
+          ],
+          "Crash Triggering": [
+            "Triggering buffer overflow in radar firmware",
+            "Inducing exception via malformed input"
+          ],
+          "Buffer Overrun": [
+            "Overloading radar memory via crafted payload",
+            "Triggering stack overflow in radar processing"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting radar event logs",
+            "Dumping diagnostic data"
+          ],
+          "Session Hijack": [
+            "Intercepting radar communication session",
+            "Stealing session tokens"
+          ],
+          "Man-in-the-Middle": [
+            "Relaying radar data to external server",
+            "Intercepting encrypted radar traffic"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Injecting malicious code into radar firmware update",
+            "Replacing update file with rogue version"
+          ],
+          "Rollback Attack": [
+            "Downgrading radar firmware to vulnerable version",
+            "Exploiting legacy update mechanism"
+          ],
+          "Malicious Binary Injection": [
+            "Uploading unauthorized executable to radar ECU",
+            "Injecting payload via firmware flashing tool"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive Camera System",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit insecure camera communication protocol",
+            "Replay attacks on camera data stream"
+          ],
+          "Interface Abuse": [
+            "Inject malicious commands via diagnostic port",
+            "Manipulate CAN messages targeting camera ECU"
+          ],
+          "User Trickery": [
+            "Phishing for camera system access credentials",
+            "Social engineering to trigger insecure camera configuration"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit overly permissive camera ECU settings",
+            "Bypass access controls due to weak role separation"
+          ],
+          "Backdoor Access": [
+            "Leverage hardcoded credentials in camera firmware",
+            "Exploit undocumented debug interfaces"
+          ],
+          "Unvalidated Access": [
+            "Access camera functions without proper authentication",
+            "Invoke privileged camera operations via API flaws"
+          ],
+          "Privilege Creep": [
+            "Abuse inherited permissions from other vehicle subsystems",
+            "Escalate privileges through chained subsystem vulnerabilities"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Send excessive CAN messages to camera ECU",
+            "Flood camera network interface with malformed packets"
+          ],
+          "Crash Triggering": [
+            "Exploit firmware bug to crash camera process",
+            "Send invalid configuration to induce system halt"
+          ],
+          "Buffer Overrun": [
+            "Overflow camera input buffer via crafted payload",
+            "Trigger memory exhaustion in camera software"
+          ],
+          "Fault Injection": [
+            "Inject voltage spikes to disrupt camera hardware",
+            "Manipulate timing signals to destabilize camera operation"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract camera event logs containing sensitive data",
+            "Access debug logs via unsecured interfaces"
+          ],
+          "Session Hijack": [
+            "Intercept active camera control session",
+            "Replay authentication tokens for unauthorized access"
+          ],
+          "Man-in-the-Middle": [
+            "Intercept camera data stream over insecure network",
+            "Modify camera output before reaching central controller"
+          ],
+          "Internal Message Capture": [
+            "Monitor CAN bus for camera-related messages",
+            "Extract telemetry data from internal communications"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Replace legitimate firmware update with malicious version",
+            "Exploit weak integrity checks during update process"
+          ],
+          "Rollback Attack": [
+            "Downgrade camera firmware to vulnerable version",
+            "Exploit lack of update version validation"
+          ],
+          "Malicious Binary Injection": [
+            "Inject unauthorized code into camera firmware image",
+            "Exploit OTA update mechanism for payload delivery"
+          ],
+          "Verification Bypass": [
+            "Exploit logical flaw in firmware hash check",
+            "Bypass signature validation during firmware installation"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "TPMS compromise in modern automotive system",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit Bluetooth pairing flaw in TPMS sensor setup",
+            "Manipulate certificate authentication to bypass sensor legitimacy checks"
+          ],
+          "Interface Abuse": [
+            "Inject malicious messages via CAN bus through TPMS interface",
+            "Exploit BLE/UWB communication channels to access VCSEC"
+          ],
+          "User Trickery": [
+            "Social engineer user to initiate unauthorized TPMS sensor pairing",
+            "Phish user credentials via fake TPMS mobile app"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit RWX memory configuration in VCSEC to execute arbitrary code",
+            "Abuse lack of access control between TPMS and critical ECUs"
+          ],
+          "Backdoor Access": [
+            "Leverage hardcoded credentials in TPMS firmware",
+            "Exploit undocumented service/debug interface in VCSEC"
+          ],
+          "Privilege Creep": [
+            "Escalate from TPMS access to immobilizer ECU control",
+            "Chain TPMS vulnerability to gain broader vehicle network privileges"
+          ],
+          "Unvalidated Access": [
+            "Bypass authentication checks in TPMS-VCSEC handshake",
+            "Replay valid pairing messages to gain unauthorized access"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood TPMS wireless channel with bogus sensor data",
+            "Overload VCSEC with excessive pairing requests"
+          ],
+          "Crash Triggering": [
+            "Send malformed TPMS packets to trigger VCSEC crash",
+            "Exploit out-of-bounds write to cause ECU reboot"
+          ],
+          "Buffer Overrun": [
+            "Exploit unchecked input fields in TPMS protocol",
+            "Trigger memory corruption in VCSEC via oversized payload"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract TPMS event logs containing sensitive pairing data",
+            "Access VCSEC logs for historical sensor communications"
+          ],
+          "Session Hijack": [
+            "Intercept active TPMS-VCSEC session to steal pairing keys",
+            "Replay session tokens to access restricted functions"
+          ],
+          "Man-in-the-Middle": [
+            "Relay TPMS sensor data to attacker-controlled device",
+            "Modify telemetry in transit to extract user or vehicle data"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Replace official TPMS firmware update with malicious version",
+            "Exploit lack of signature verification in update process"
+          ],
+          "Rollback Attack": [
+            "Downgrade TPMS firmware to vulnerable version",
+            "Exploit update mechanism to bypass security patches"
+          ],
+          "Malicious Binary Injection": [
+            "Inject custom payload into TPMS firmware image",
+            "Modify bootloader to execute attacker code on startup"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Vehicle Mobile App Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit insecure Bluetooth pairing",
+            "Exploit unencrypted CAN bus messaging"
+          ],
+          "Interface Abuse": [
+            "Abuse REST API endpoints with crafted requests",
+            "Exploit insecure WebSocket communication"
+          ],
+          "User Trickery": [
+            "Phishing via fake app update notifications",
+            "Social engineering for credential theft"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit excessive app permissions",
+            "Access debug interfaces left enabled"
+          ],
+          "Backdoor Access": [
+            "Leverage hardcoded credentials in app",
+            "Exploit undocumented admin APIs"
+          ],
+          "Unvalidated Access": [
+            "Bypass authentication checks",
+            "Reuse expired session tokens"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood app with malformed CAN messages",
+            "Overload backend with excessive requests"
+          ],
+          "Crash Triggering": [
+            "Send malformed payload to crash app",
+            "Exploit memory exhaustion via large file upload"
+          ],
+          "Buffer Overrun": [
+            "Exploit buffer overflow in protocol handler",
+            "Trigger stack overflow with crafted input"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract sensitive data from local logs",
+            "Upload log files to attacker server"
+          ],
+          "Session Hijack": [
+            "Steal session tokens via insecure storage",
+            "Intercept session cookies over insecure channel"
+          ],
+          "Man-in-the-Middle": [
+            "Intercept credentials via rogue Wi-Fi",
+            "Capture telemetry data with proxy attack"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Replace update file with malicious firmware",
+            "Exploit lack of update signature verification"
+          ],
+          "Rollback Attack": [
+            "Install outdated vulnerable firmware",
+            "Exploit downgrade path to bypass patch"
+          ],
+          "Malicious Binary Injection": [
+            "Inject malicious code into update package",
+            "Exploit insecure update delivery channel"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive Cloud Services",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Abuse of MQTT for unauthorized command injection",
+            "Exploitation of insecure REST API endpoints"
+          ],
+          "Interface Abuse": [
+            "Exploiting weak authentication on cloud management portals",
+            "Bypassing input validation in OTA update interfaces"
+          ],
+          "User Trickery": [
+            "Phishing cloud service credentials from vehicle owners",
+            "Social engineering support staff for privileged access"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Gaining admin rights via overly broad IAM roles",
+            "Accessing restricted APIs due to improper ACLs"
+          ],
+          "Backdoor Access": [
+            "Leveraging hardcoded credentials in cloud microservices",
+            "Activating undocumented debug interfaces"
+          ],
+          "Unvalidated Access": [
+            "Privilege creep through unused legacy accounts",
+            "Session fixation to inherit higher privileges"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flooding telemetry ingestion endpoints with bogus data",
+            "Overloading notification services with fake alerts"
+          ],
+          "Crash Triggering": [
+            "Sending malformed payloads to crash cloud microservices",
+            "Triggering resource exhaustion via recursive API calls"
+          ],
+          "Buffer Overrun": [
+            "Exploiting buffer overflow in cloud protocol handlers",
+            "Causing memory leaks in data aggregation modules"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting sensitive data from verbose cloud logs",
+            "Accessing debug logs containing user credentials"
+          ],
+          "Session Hijack": [
+            "Stealing session tokens via insecure storage",
+            "Replaying intercepted authentication cookies"
+          ],
+          "Man-in-the-Middle": [
+            "Intercepting unencrypted telemetry between vehicle and cloud",
+            "SSL stripping attacks on cloud API endpoints"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Injecting malicious code into OTA firmware packages",
+            "Replacing legitimate update files with trojanized versions"
+          ],
+          "Rollback Attack": [
+            "Forcing downgrade to vulnerable firmware via cloud APIs",
+            "Exploiting lack of version validation in update process"
+          ],
+          "Malicious Binary Injection": [
+            "Uploading unauthorized binaries via cloud storage abuse",
+            "Injecting payloads into executable update containers"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive Key Fob",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Replay Attack on RF Signal",
+            "Relay Attack via Signal Amplification"
+          ],
+          "Interface Abuse": [
+            "Bluetooth Low Energy (BLE) Exploitation",
+            "Unauthorized NFC Communication"
+          ],
+          "User Trickery": [
+            "Phishing via Fake Mobile App",
+            "Social Engineering to Extract Pairing Code"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded Credentials in Firmware",
+            "Privilege Creep through Overlooked Access Rights"
+          ],
+          "Backdoor Access": [
+            "Unvalidated Access via Debug Interface",
+            "Hidden Maintenance Mode Activation"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Continuous RF Jamming",
+            "BLE Packet Flooding"
+          ],
+          "Crash Triggering": [
+            "Malformed Command Injection",
+            "Buffer Overrun via Oversized Payload"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extraction of Event Logs via Diagnostic Port",
+            "Wireless Download of Usage History"
+          ],
+          "Session Hijack": [
+            "Man-in-the-Middle on Key Fob-Vehicle Link",
+            "Session Token Replay Attack"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious Firmware via Over-the-Air Update",
+            "Corrupted Update File Injection"
+          ],
+          "Rollback Attack": [
+            "Downgrade to Vulnerable Firmware Version",
+            "Bypass Update Integrity Check"
+          ],
+          "Malicious Binary Injection": [
+            "Custom Payload via Debug Port",
+            "Unauthorized Code Execution through Exploit"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "RFID Entry Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Replay Attack on RFID Protocol",
+            "Cryptographic Weakness Exploitation"
+          ],
+          "Interface Abuse": [
+            "RFID Signal Sniffing",
+            "Unauthorized Signal Injection"
+          ],
+          "User Trickery": [
+            "Social Engineering for Key Card Access",
+            "Phishing via Fake Update Prompts"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded Credentials Discovery",
+            "Privilege Creep via Unpatched Firmware"
+          ],
+          "Backdoor Access": [
+            "Unvalidated Access via Debug Interface",
+            "Hidden Service Activation"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "RFID Signal Jamming",
+            "Excessive Authentication Requests"
+          ],
+          "Crash Triggering": [
+            "Malformed Packet Injection",
+            "Buffer Overrun in Entry Controller"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized Access to Entry Logs",
+            "Extraction of Stored Credentials"
+          ],
+          "Session Hijack": [
+            "Man-in-the-Middle on RFID Communication",
+            "Session Token Replay"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious Firmware Update Delivery",
+            "Update File Hash Collision"
+          ],
+          "Rollback Attack": [
+            "Forced Downgrade to Vulnerable Firmware",
+            "Bypass of Update Verification"
+          ],
+          "Malicious Binary Injection": [
+            "Direct Injection via Debug Port",
+            "Payload Delivery via Over-the-Air Update"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Immobilizer Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Replay attack on immobilizer challenge-response",
+            "Brute-force weak cryptographic keys"
+          ],
+          "Interface Abuse": [
+            "Exploit OBD-II diagnostic port",
+            "Exploit RF interface vulnerabilities"
+          ],
+          "User Trickery": [
+            "Phishing for immobilizer PIN",
+            "Social engineering to gain physical key"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit excessive CAN bus privileges",
+            "Access debug interfaces left enabled"
+          ],
+          "Backdoor Access": [
+            "Use undocumented service mode",
+            "Exploit manufacturer test credentials"
+          ],
+          "Unvalidated Access": [
+            "Bypass authentication checks",
+            "Exploit insecure session management"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood immobilizer with CAN messages",
+            "Transmit excessive RF unlock requests"
+          ],
+          "Crash Triggering": [
+            "Send malformed protocol messages",
+            "Exploit buffer overflow in immobilizer firmware"
+          ],
+          "Buffer Overrun": [
+            "Exploit input length vulnerability",
+            "Trigger stack overflow via crafted payload"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract event logs via maintenance interface",
+            "Read memory dumps from immobilizer ECU"
+          ],
+          "Session Hijack": [
+            "Intercept key exchange over RF",
+            "Replay valid authentication session"
+          ],
+          "Man-in-the-Middle": [
+            "Relay communication between key and immobilizer",
+            "Modify protocol messages in transit"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Upload malicious firmware via update process",
+            "Exploit lack of signature verification"
+          ],
+          "Rollback Attack": [
+            "Force downgrade to vulnerable firmware version",
+            "Exploit unprotected firmware version checks"
+          ],
+          "Malicious Binary Injection": [
+            "Inject code via debug interface",
+            "Exploit firmware flashing vulnerabilities"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "In-Vehicle Network Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "CAN Bus Injection",
+            "Diagnostic Protocol Abuse"
+          ],
+          "Interface Abuse": [
+            "OBD-II Port Exploit",
+            "Infotainment Bluetooth Attack"
+          ],
+          "User Trickery": [
+            "Phishing via Vehicle App",
+            "Malicious USB Media"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Unrestricted ECU Access",
+            "Improper Access Control Lists"
+          ],
+          "Backdoor Access": [
+            "Hardcoded Credentials",
+            "Hidden Debug Interfaces"
+          ],
+          "Unvalidated Access": [
+            "Bypassing Authentication",
+            "Exploiting Default Accounts"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "CAN Bus Flooding",
+            "Diagnostic Request Spamming"
+          ],
+          "Crash Triggering": [
+            "Malformed Packet Injection",
+            "Protocol State Manipulation"
+          ],
+          "Buffer Overrun": [
+            "Oversized Message Injection",
+            "Memory Exhaustion Attack"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting Diagnostic Logs",
+            "Accessing Event History"
+          ],
+          "Session Hijack": [
+            "Stealing Session Tokens",
+            "Replay Attack on Communications"
+          ],
+          "Man-in-the-Middle": [
+            "Intercepting Telemetry Data",
+            "Sniffing Internal Messages"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supplying Malicious Firmware",
+            "Altering Update Payload"
+          ],
+          "Rollback Attack": [
+            "Forcing Downgrade to Vulnerable Version",
+            "Exploiting Insecure Update Validation"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting Rogue Executable",
+            "Modifying Bootloader Code"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "IVI System Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit insecure Bluetooth pairing",
+            "Abuse weak Wi-Fi authentication"
+          ],
+          "Interface Abuse": [
+            "Inject malicious code via USB port",
+            "Exploit CAN bus message injection"
+          ],
+          "User Trickery": [
+            "Phishing through IVI app interface",
+            "Social engineering via malicious QR codes"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit default admin accounts",
+            "Privilege creep via software update flaws"
+          ],
+          "Backdoor Access": [
+            "Leverage hardcoded credentials",
+            "Exploit undocumented debug interfaces"
+          ],
+          "Unvalidated Access": [
+            "Bypass authentication checks",
+            "Access restricted files via path traversal"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood IVI with malformed CAN messages",
+            "Overload wireless interface with requests"
+          ],
+          "Crash Triggering": [
+            "Exploit exception handling flaw",
+            "Send malformed media files to crash player"
+          ],
+          "Buffer Overrun": [
+            "Exploit stack overflow in media parser",
+            "Trigger heap overflow in Bluetooth stack"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract call logs from IVI storage",
+            "Dump navigation history files"
+          ],
+          "Session Hijack": [
+            "Exploit improper HTTPS validation",
+            "Steal session tokens from memory"
+          ],
+          "Man-in-the-Middle": [
+            "Intercept traffic via rogue Wi-Fi AP",
+            "Perform ARP spoofing on IVI network"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Replace update package with malicious firmware",
+            "Exploit lack of signature verification"
+          ],
+          "Rollback Attack": [
+            "Install outdated vulnerable firmware",
+            "Exploit update mechanism to downgrade IVI"
+          ],
+          "Malicious Binary Injection": [
+            "Inject spyware via removable media",
+            "Modify executable files in firmware partition"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive Head Unit",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit CAN bus message injection",
+            "Abuse diagnostic protocol commands"
+          ],
+          "Interface Abuse": [
+            "Exploit Bluetooth stack vulnerability",
+            "Exploit USB media parsing flaw"
+          ],
+          "User Trickery": [
+            "Phishing via malicious app install prompt",
+            "Social engineering to enable developer mode"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit world-writable system files",
+            "Abuse over-permissive IPC channels"
+          ],
+          "Backdoor Access": [
+            "Leverage hardcoded credentials",
+            "Exploit undocumented service endpoints"
+          ],
+          "Unvalidated Access": [
+            "Bypass authentication for admin interface",
+            "Privilege creep via chained vulnerabilities"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood CAN bus with malformed frames",
+            "Overload Ethernet interface with traffic"
+          ],
+          "Crash Triggering": [
+            "Exploit media parsing to crash UI",
+            "Send malformed OTA update to induce reboot"
+          ],
+          "Buffer Overrun": [
+            "Exploit stack overflow in audio decoder",
+            "Trigger heap overflow in navigation parser"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract crash logs containing user data",
+            "Download diagnostic logs via debug interface"
+          ],
+          "Session Hijack": [
+            "Intercept Wi-Fi session tokens",
+            "Replay Bluetooth pairing credentials"
+          ],
+          "Man-in-the-Middle": [
+            "Intercept traffic via rogue Wi-Fi AP",
+            "Exploit insecure TLS to capture telemetry"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Replace OTA update with malicious firmware",
+            "Exploit signature bypass in update process"
+          ],
+          "Rollback Attack": [
+            "Force downgrade to vulnerable firmware",
+            "Exploit lack of anti-rollback protection"
+          ],
+          "Malicious Binary Injection": [
+            "Inject rootkit into firmware image",
+            "Modify bootloader to persist malware"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive HMI Interface",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit insecure diagnostic protocol",
+            "Replay unauthorized CAN messages"
+          ],
+          "Interface Abuse": [
+            "Inject malformed input via USB/Bluetooth",
+            "Exploit exposed debug interface"
+          ],
+          "User Trickery": [
+            "Phishing via HMI popups",
+            "Social engineering user to install malicious app"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit excessive default privileges",
+            "Bypass access control via configuration flaw"
+          ],
+          "Backdoor Access": [
+            "Leverage undocumented maintenance account",
+            "Exploit leftover test interface"
+          ],
+          "Unvalidated Access": [
+            "Access restricted function via API flaw",
+            "Invoke privileged command without authentication"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood HMI with CAN messages",
+            "Overload network stack via repeated requests"
+          ],
+          "Crash Triggering": [
+            "Exploit parsing bug to crash HMI",
+            "Send malformed display data to trigger fault"
+          ],
+          "Buffer Overrun": [
+            "Overflow input buffer via crafted payload",
+            "Exploit stack overflow in media parser"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract sensitive logs via USB",
+            "Remotely access debug logs containing user data"
+          ],
+          "Session Hijack": [
+            "Steal active session token",
+            "Replay authentication session to remote endpoint"
+          ],
+          "Man-in-the-Middle": [
+            "Intercept HMI communication over wireless",
+            "Modify data in transit between HMI and backend"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Replace update package with malicious firmware",
+            "Exploit lack of signature verification in update"
+          ],
+          "Rollback Attack": [
+            "Install outdated firmware with known flaws",
+            "Exploit downgrade path to vulnerable version"
+          ],
+          "Malicious Binary Injection": [
+            "Inject rogue binary into HMI storage",
+            "Exploit update process to load unauthorized code"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Mobile Device Integration Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit insecure Bluetooth pairing",
+            "Manipulate mobile-to-IVI authentication"
+          ],
+          "Interface Abuse": [
+            "Exploit USB interface vulnerabilities",
+            "Abuse wireless projection protocols"
+          ],
+          "User Trickery": [
+            "Phishing via malicious app prompt",
+            "Social engineering for device pairing"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit excessive app permissions",
+            "Abuse default trust settings"
+          ],
+          "Backdoor Access": [
+            "Leverage hardcoded credentials",
+            "Exploit undocumented debug interface"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood IVI with malformed mobile messages",
+            "Overload mobile integration service"
+          ],
+          "Crash Triggering": [
+            "Send crafted payload to crash integration module",
+            "Exploit buffer overrun in protocol handler"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract integration logs from IVI",
+            "Dump mobile connection history"
+          ],
+          "Session Hijack": [
+            "Intercept session tokens",
+            "Replay authentication messages"
+          ],
+          "Man-in-the-Middle": [
+            "Intercept mobile-to-vehicle traffic",
+            "Modify data in transit"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Inject malicious code in OTA update",
+            "Replace update file with rogue firmware"
+          ],
+          "Rollback Attack": [
+            "Force downgrade to vulnerable firmware",
+            "Exploit legacy protocol in old version"
+          ],
+          "Malicious Binary Injection": [
+            "Inject payload via mobile app update",
+            "Exploit executable upload feature"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive Diagnostic Tools",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "UDS SecurityAccess bypass via crafted requests",
+            "Exploiting legacy protocol versions with known vulnerabilities"
+          ],
+          "Interface Abuse": [
+            "Abusing OBD-II port for unauthorized access",
+            "Exploiting unsecured wireless diagnostic interfaces"
+          ],
+          "User Trickery": [
+            "Phishing diagnostic tool operators for credentials",
+            "Social engineering to gain physical access to diagnostic hardware"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Privilege creep via excessive default rights",
+            "Unvalidated access to restricted diagnostic functions"
+          ],
+          "Backdoor Access": [
+            "Hardcoded credentials in diagnostic firmware",
+            "Hidden debug interfaces left enabled in production"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flooding diagnostic protocol with malformed requests",
+            "Overloading CAN bus via diagnostic tool commands"
+          ],
+          "Crash Triggering": [
+            "Sending crafted packets to exploit protocol parsing bugs",
+            "Triggering buffer overrun in diagnostic tool software"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting sensitive logs from diagnostic tool storage",
+            "Automated log scraping via remote access"
+          ],
+          "Session Hijack": [
+            "Intercepting active diagnostic sessions over network",
+            "Replaying captured authentication tokens"
+          ],
+          "Man-in-the-Middle": [
+            "Intercepting diagnostic data via network MITM",
+            "Injecting malicious responses during diagnostic sessions"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supplying malicious firmware during update process",
+            "Modifying update package integrity checks"
+          ],
+          "Rollback Attack": [
+            "Forcing installation of outdated vulnerable firmware",
+            "Bypassing version checks in update logic"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting unauthorized code into diagnostic firmware",
+            "Exploiting firmware verification logic flaws"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive OTA Updates",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit insecure OTA protocol version",
+            "Bypass authentication via replay attack"
+          ],
+          "Interface Abuse": [
+            "Exploit vulnerable REST API endpoint",
+            "Abuse diagnostic interface for unauthorized access"
+          ],
+          "User Trickery": [
+            "Phishing for OTA credentials",
+            "Social engineering to trigger unauthorized update"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit excessive update server privileges",
+            "Leverage weak file system permissions"
+          ],
+          "Backdoor Access": [
+            "Use hardcoded credentials in OTA subsystem",
+            "Exploit undocumented admin interface"
+          ],
+          "Unvalidated Access": [
+            "Bypass access control on update deployment",
+            "Exploit lack of role separation in update workflow"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood OTA server with update requests",
+            "Overload vehicle communication bus during update"
+          ],
+          "Crash Triggering": [
+            "Send malformed update package to crash ECU",
+            "Exploit firmware parsing bug to halt update process"
+          ],
+          "Buffer Overrun": [
+            "Exploit buffer overflow in OTA handler",
+            "Trigger memory exhaustion via oversized payload"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract sensitive data from OTA logs",
+            "Access debug logs containing credentials"
+          ],
+          "Session Hijack": [
+            "Steal OTA session tokens",
+            "Intercept update session to extract user data"
+          ],
+          "Man-in-the-Middle": [
+            "Intercept OTA update via compromised Wi-Fi",
+            "Perform SSL stripping on OTA communication"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Inject malicious code into update package",
+            "Modify update metadata to bypass verification"
+          ],
+          "Rollback Attack": [
+            "Force installation of outdated vulnerable firmware",
+            "Exploit lack of rollback protection in update logic"
+          ],
+          "Malicious Binary Injection": [
+            "Replace legitimate firmware with trojanized binary",
+            "Exploit signature verification bypass to install rogue firmware"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Cellular Module Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit SMS protocol parsing flaw",
+            "Manipulate SIM toolkit commands"
+          ],
+          "Interface Abuse": [
+            "Abuse diagnostic AT command interface",
+            "Exploit unsecured remote management port"
+          ],
+          "User Trickery": [
+            "Phishing via cellular-connected infotainment",
+            "Social engineering for malicious app installation"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit default admin credentials",
+            "Leverage excessive interface privileges"
+          ],
+          "Backdoor Access": [
+            "Activate undocumented debug mode",
+            "Exploit hidden maintenance interface"
+          ],
+          "Unvalidated Access": [
+            "Bypass authentication on cellular API",
+            "Exploit lack of session validation"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood cellular modem with connection requests",
+            "Send excessive malformed packets"
+          ],
+          "Crash Triggering": [
+            "Exploit buffer overflow in protocol handler",
+            "Send crafted message to induce firmware panic"
+          ],
+          "Buffer Overrun": [
+            "Transmit oversized payload via SMS",
+            "Exploit input length checks in AT command parser"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract connection logs via debug interface",
+            "Download stored SMS messages"
+          ],
+          "Session Hijack": [
+            "Intercept cellular session tokens",
+            "Replay authentication handshake"
+          ],
+          "Man-in-the-Middle": [
+            "Impersonate base station for interception",
+            "Exploit weak encryption for traffic sniffing"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Inject malicious code into OTA update package",
+            "Modify checksum to bypass integrity check"
+          ],
+          "Rollback Attack": [
+            "Force downgrade to vulnerable firmware version",
+            "Exploit lack of version validation"
+          ],
+          "Malicious Binary Injection": [
+            "Replace executable with trojanized binary",
+            "Exploit update mechanism for arbitrary code execution"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "CAN Gateway Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "UDS SecurityAccess bypass",
+            "CAN message injection"
+          ],
+          "Interface Abuse": [
+            "Wireless interface exploitation",
+            "UART debug port access"
+          ],
+          "User Trickery": [
+            "Phishing via mobile app",
+            "Social engineering for remote access"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Privilege creep in gateway OS",
+            "Unvalidated access to CAN gateway services"
+          ],
+          "Backdoor Access": [
+            "Hardcoded credentials exploitation",
+            "Hidden debug account usage"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "CAN frame spamming",
+            "Broadcast storm via external interface"
+          ],
+          "Crash Triggering": [
+            "Malformed packet injection",
+            "Resource exhaustion via crafted requests"
+          ],
+          "Buffer Overrun": [
+            "Oversized CAN message injection",
+            "Stack overflow in gateway firmware"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized access to gateway logs",
+            "Extraction of diagnostic data"
+          ],
+          "Session Hijack": [
+            "Intercepting gateway authentication tokens",
+            "Replay attack on CAN session"
+          ],
+          "Man-in-the-Middle": [
+            "TLS/SSL certificate theft",
+            "OTA update interception"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious OTA package delivery",
+            "Exploiting firmware hash check bypass"
+          ],
+          "Rollback Attack": [
+            "Downgrade to vulnerable firmware version",
+            "Exploiting legacy update logic"
+          ],
+          "Malicious Binary Injection": [
+            "Direct firmware overwrite via debug port",
+            "Payload injection during update process"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "LIN Bus Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Replay Attack via Message Re-injection",
+            "Frame Manipulation Exploiting Lack of Authentication"
+          ],
+          "Interface Abuse": [
+            "Physical Access to Diagnostic Port",
+            "Remote Exploit via Connected Telematics"
+          ],
+          "User Trickery": [
+            "Social Engineering to Induce Malicious Device Connection",
+            "Phishing for Service Credentials"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Privilege Creep through Overly Broad ECU Access",
+            "Unvalidated Access to Restricted LIN Commands"
+          ],
+          "Backdoor Access": [
+            "Exploitation of Hardcoded Credentials in Firmware",
+            "Use of Undocumented Maintenance Interfaces"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Continuous Transmission of High-Priority Frames",
+            "Flooding Bus with Invalid Checksums"
+          ],
+          "Crash Triggering": [
+            "Exploiting Error Handling to Halt Communication",
+            "Inducing Buffer Overrun in Slave Node"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extraction of Diagnostic Logs via Service Tools",
+            "Unauthorized Access to Event History"
+          ],
+          "Session Hijack": [
+            "Man-in-the-Middle on LIN Bus for Message Capture",
+            "Session Token Replay to Impersonate Legitimate Node"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supplying Malicious Firmware via Update Process",
+            "Exploiting Lack of Update File Integrity Checks"
+          ],
+          "Rollback Attack": [
+            "Downgrading Firmware to Vulnerable Version",
+            "Bypassing Update Verification Mechanisms"
+          ],
+          "Malicious Binary Injection": [
+            "Direct Flashing of Compromised Firmware",
+            "Insertion of Malicious Payload in Bootloader"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "FlexRay Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Malformed Frame Injection",
+            "Timing Manipulation"
+          ],
+          "Interface Abuse": [
+            "Unauthorized Diagnostic Access",
+            "Physical Port Exploitation"
+          ],
+          "User Trickery": [
+            "Social Engineering for Access",
+            "Phishing via Connected Services"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Unrestricted ECU Access",
+            "Improper Role Assignment"
+          ],
+          "Backdoor Access": [
+            "Hardcoded Credentials Usage",
+            "Hidden Service Activation"
+          ],
+          "Unvalidated Access": [
+            "Bypassing Authentication",
+            "Token Replay Attack"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Broadcast Storm",
+            "Repeated Frame Injection"
+          ],
+          "Crash Triggering": [
+            "Malformed Message Delivery",
+            "Protocol Violation Exploit"
+          ],
+          "Buffer Overrun": [
+            "Oversized Frame Injection",
+            "Rapid Sequence Overflow"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized Log Access",
+            "Remote Log Extraction"
+          ],
+          "Session Hijack": [
+            "Session Token Theft",
+            "Active Session Takeover"
+          ],
+          "Man-in-the-Middle": [
+            "Frame Interception",
+            "Message Modification"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious Firmware Upload",
+            "Update File Replacement"
+          ],
+          "Rollback Attack": [
+            "Downgrade to Vulnerable Version",
+            "Version Spoofing"
+          ],
+          "Malicious Binary Injection": [
+            "Payload Injection via Update",
+            "Unauthorized Code Execution"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Zonal ECU Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "CAN Injection via crafted frames",
+            "Automotive Ethernet packet spoofing"
+          ],
+          "Interface Abuse": [
+            "OBD-II port exploitation",
+            "Diagnostic service abuse"
+          ],
+          "User Trickery": [
+            "Phishing via infotainment prompts",
+            "Malicious USB device insertion"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Unrestricted service access",
+            "Privilege creep through software updates"
+          ],
+          "Backdoor Access": [
+            "Hardcoded credentials exploitation",
+            "Hidden debug interface activation"
+          ],
+          "Unvalidated Access": [
+            "Token replay attacks",
+            "Bypassing authentication checks"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "CAN bus high-priority frame flooding",
+            "Automotive Ethernet broadcast storm"
+          ],
+          "Crash Triggering": [
+            "Malformed diagnostic command injection",
+            "Protocol state confusion"
+          ],
+          "Buffer Overrun": [
+            "Oversized payload injection",
+            "Malformed message sequence"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized log file access",
+            "Memory scraping for sensitive data"
+          ],
+          "Session Hijack": [
+            "Session token interception",
+            "Replay of authentication sessions"
+          ],
+          "Man-in-the-Middle": [
+            "Onboard network traffic sniffing",
+            "Wireless relay attack"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious firmware over-the-air (OTA) update",
+            "Update file signature forgery"
+          ],
+          "Rollback Attack": [
+            "Downgrade to vulnerable firmware version",
+            "Exploiting lack of version checks"
+          ],
+          "Malicious Binary Injection": [
+            "Direct flash memory overwrite",
+            "Payload injection during update process"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Sensor Fusion Module Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Malformed CAN messages",
+            "Replay attacks on sensor data"
+          ],
+          "Interface Abuse": [
+            "Unauthorized API calls",
+            "Direct memory access via debug ports"
+          ],
+          "User Trickery": [
+            "Phishing for diagnostic credentials",
+            "Social engineering to trigger unsafe sensor states"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded credentials in firmware",
+            "Privilege creep via legacy access rules"
+          ],
+          "Backdoor Access": [
+            "Hidden debug interface activation",
+            "Unvalidated access through maintenance mode"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Sensor data spamming",
+            "Excessive diagnostic requests"
+          ],
+          "Crash Triggering": [
+            "Malformed fusion input causing exception",
+            "Triggering watchdog resets"
+          ],
+          "Buffer Overrun": [
+            "Oversized sensor payload injection",
+            "Stack overflow via crafted fusion messages"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extraction of sensor fusion logs",
+            "Accessing debug traces"
+          ],
+          "Session Hijack": [
+            "Intercepting fusion module communication",
+            "Session token theft"
+          ],
+          "Man-in-the-Middle": [
+            "Intercepting sensor data streams",
+            "Tampering with fusion results in transit"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious firmware update via OTA",
+            "Update package integrity bypass"
+          ],
+          "Rollback Attack": [
+            "Downgrade to vulnerable firmware version",
+            "Exploiting legacy update mechanism"
+          ],
+          "Malicious Binary Injection": [
+            "Direct injection via diagnostics port",
+            "Payload delivery through compromised update server"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Brake Control System Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "CAN message injection exploiting protocol flaws",
+            "Replay attack on brake command messages"
+          ],
+          "Interface Abuse": [
+            "Exploiting diagnostic port to send unauthorized commands",
+            "Manipulating wireless interface (e.g., Bluetooth, Wi-Fi) to access brake controls"
+          ],
+          "User Trickery": [
+            "Phishing user to install malicious app with brake access",
+            "Social engineering to gain physical access to vehicle interface"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploiting default admin credentials in brake ECU",
+            "Gaining access via overly permissive access control lists"
+          ],
+          "Backdoor Access": [
+            "Using undocumented manufacturer backdoor",
+            "Leveraging maintenance mode to elevate privileges"
+          ],
+          "Unvalidated Access": [
+            "Bypassing authentication checks in brake control software",
+            "Exploiting session fixation to inherit higher privileges"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Sending excessive CAN traffic to overwhelm brake ECU",
+            "Broadcasting malformed messages to disrupt normal operation"
+          ],
+          "Crash Triggering": [
+            "Exploiting software bug to force brake system reboot",
+            "Triggering watchdog timer to disable brake control"
+          ],
+          "Buffer Overrun": [
+            "Sending oversized payloads to overflow input buffers",
+            "Exploiting stack overflow in brake firmware communication handler"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting brake event logs via unauthorized access",
+            "Copying diagnostic logs containing sensitive data"
+          ],
+          "Session Hijack": [
+            "Intercepting active diagnostic session to capture credentials",
+            "Hijacking remote maintenance session to access internal data"
+          ],
+          "Man-in-the-Middle": [
+            "Intercepting brake control messages over wireless link",
+            "Relaying and modifying telemetry data to external attacker"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Injecting malicious code into firmware update package",
+            "Replacing legitimate update with attacker-controlled binary"
+          ],
+          "Rollback Attack": [
+            "Forcing downgrade to vulnerable firmware version",
+            "Exploiting lack of version checks in update process"
+          ],
+          "Malicious Binary Injection": [
+            "Uploading unauthorized executable to brake ECU",
+            "Modifying bootloader to persistently install malware"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Throttle Control Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit CAN bus message injection",
+            "Replay throttle position commands"
+          ],
+          "Interface Abuse": [
+            "Manipulate throttle position sensor signals",
+            "Abuse diagnostic port for unauthorized throttle commands"
+          ],
+          "User Trickery": [
+            "Social engineer technician to install malicious firmware",
+            "Trick user into connecting compromised OBD-II device"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit default admin credentials in ECU",
+            "Gain access via excessive privilege assignment"
+          ],
+          "Backdoor Access": [
+            "Leverage undocumented debug interface",
+            "Exploit maintenance mode for elevated access"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Send excessive throttle control messages to ECU",
+            "Flood CAN bus to delay legitimate throttle commands"
+          ],
+          "Crash Triggering": [
+            "Inject malformed throttle control packets",
+            "Exploit buffer overflow in throttle firmware"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract throttle event logs via diagnostic interface",
+            "Access stored sensor calibration data"
+          ],
+          "Session Hijack": [
+            "Intercept throttle control session over wireless link",
+            "Replay authentication tokens for throttle access"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Replace legitimate firmware with malicious version",
+            "Modify update package checksum to bypass verification"
+          ],
+          "Rollback Attack": [
+            "Force downgrade to vulnerable firmware version",
+            "Exploit lack of firmware version checks"
+          ],
+          "Malicious Binary Injection": [
+            "Inject unauthorized code via bootloader exploit",
+            "Modify executable payload in memory"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Powertrain Control Module",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "CAN Bus Injection",
+            "Undefended UDS Service Abuse"
+          ],
+          "Interface Abuse": [
+            "OBD-II Port Exploit",
+            "Wireless Interface Exploit"
+          ],
+          "User Trickery": [
+            "Phishing Diagnostic App",
+            "Malicious USB Device"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded Credentials",
+            "Privilege Creep"
+          ],
+          "Backdoor Access": [
+            "Hidden Debug Interface",
+            "Unvalidated Access Token"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "CAN Frame Flood",
+            "Diagnostic Request Storm"
+          ],
+          "Crash Triggering": [
+            "Malformed Packet Injection",
+            "Buffer Overrun Exploit"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract Diagnostic Logs",
+            "Harvest Event History"
+          ],
+          "Session Hijack": [
+            "Replay Attack on Session",
+            "Session Token Theft"
+          ],
+          "Man-in-the-Middle": [
+            "Interception via Compromised Gateway",
+            "Relay Attack on Internal Bus"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious Firmware Upload",
+            "Update File Substitution"
+          ],
+          "Rollback Attack": [
+            "Install Outdated Vulnerable Firmware",
+            "Exploit Insecure Version Check"
+          ],
+          "Malicious Binary Injection": [
+            "Custom Payload Injection",
+            "Code Cave Exploit"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive HVAC Module",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit insecure CAN message parsing",
+            "Leverage unencrypted LIN bus commands"
+          ],
+          "Interface Abuse": [
+            "Exploit diagnostic port access",
+            "Abuse remote wireless interface (e.g., Bluetooth, WiFi)"
+          ],
+          "User Trickery": [
+            "Phishing via in-car infotainment prompts",
+            "Social engineering to induce unsafe HVAC settings"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit default admin roles in HVAC firmware",
+            "Privilege creep from adjacent ECU access"
+          ],
+          "Backdoor Access": [
+            "Leverage hardcoded credentials in module",
+            "Exploit undocumented maintenance interface"
+          ],
+          "Unvalidated Access": [
+            "Bypass authentication on HVAC control API",
+            "Replay authorized session tokens"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood CAN bus with HVAC-specific commands",
+            "Send repeated malformed packets to HVAC interface"
+          ],
+          "Crash Triggering": [
+            "Exploit buffer overrun in HVAC request handler",
+            "Send malformed configuration payloads"
+          ],
+          "Resource Exhaustion": [
+            "Trigger excessive temperature sensor polling",
+            "Force continuous actuator cycling"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract HVAC event logs via diagnostic interface",
+            "Access stored error logs containing sensitive data"
+          ],
+          "Session Hijack": [
+            "Intercept HVAC control sessions over wireless",
+            "Replay captured session tokens to extract data"
+          ],
+          "Man-in-the-Middle": [
+            "Intercept internal bus messages for user data",
+            "Relay and modify telemetry to external attacker"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Upload malicious firmware via OTA update",
+            "Replace update file on USB before installation"
+          ],
+          "Rollback Attack": [
+            "Install older vulnerable firmware version",
+            "Exploit lack of version validation in update process"
+          ],
+          "Malicious Binary Injection": [
+            "Patch HVAC firmware with custom payload",
+            "Inject code via debug interface during maintenance"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Steering ECU Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "CAN message injection exploiting weak authentication",
+            "Manipulation of diagnostic protocol commands"
+          ],
+          "Interface Abuse": [
+            "Exploiting insecure OBD-II port access",
+            "Wireless interface exploitation (e.g., Bluetooth, WiFi)"
+          ],
+          "User Trickery": [
+            "Phishing via infotainment prompts",
+            "Social engineering to gain physical access"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploiting default or weak access controls",
+            "Privilege creep through accumulated rights"
+          ],
+          "Backdoor Access": [
+            "Utilizing hardcoded credentials in firmware",
+            "Leveraging undocumented debug interfaces"
+          ],
+          "Unvalidated Access": [
+            "Bypassing authentication checks",
+            "Session fixation or replay attacks"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "CAN bus flooding with high-priority frames",
+            "Broadcast storm via wireless interface"
+          ],
+          "Crash Triggering": [
+            "Sending malformed protocol messages",
+            "Triggering known software bugs to force reboot"
+          ],
+          "Buffer Overrun": [
+            "Exploiting input buffer overflow in message parser",
+            "Overloading memory with oversized payloads"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting stored event logs via diagnostic tools",
+            "Abusing maintenance interfaces to read logs"
+          ],
+          "Session Hijack": [
+            "Intercepting session tokens over insecure channels",
+            "Reusing valid authentication sessions"
+          ],
+          "Man-in-the-Middle": [
+            "Eavesdropping on CAN bus traffic",
+            "Intercepting wireless communications to steal data"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supplying malicious firmware during update process",
+            "Exploiting lack of signature verification"
+          ],
+          "Rollback Attack": [
+            "Installing outdated firmware with known vulnerabilities",
+            "Downgrading to insecure software versions"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting custom payloads into firmware image",
+            "Modifying bootloader to execute attacker code"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Battery Management System Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit UDS Unencrypted Communication",
+            "Replay or Modify Captured UDS Messages"
+          ],
+          "Interface Abuse": [
+            "Exploit OBD-II Port Vulnerability",
+            "Abuse CAN Bus Diagnostic Access"
+          ],
+          "User Trickery": [
+            "Phishing for Remote Access Credentials",
+            "Social Engineering to Induce Unsafe Actions"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded Credentials in Firmware",
+            "Privilege Creep via Unrestricted Access"
+          ],
+          "Backdoor Access": [
+            "Hidden Debug Interface Exploitation",
+            "Unvalidated Access via Seed-Key Bypass"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "CAN Bus Saturation",
+            "UDS Diagnostic Request Overload"
+          ],
+          "Crash Triggering": [
+            "Malformed Packet Injection",
+            "Fault Injection via Invalid Commands"
+          ],
+          "Buffer Overrun": [
+            "Oversized Diagnostic Message",
+            "Excessive Telemetry Data Injection"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract Battery Telemetry Logs",
+            "Dump System Event Logs"
+          ],
+          "Session Hijack": [
+            "Intercept Remote Maintenance Session",
+            "Hijack OTA Update Channel"
+          ],
+          "Man-in-the-Middle": [
+            "Intercept CAN Bus Messages",
+            "Eavesdrop on UDS Diagnostic Traffic"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Inject Malicious Payload into OTA Update",
+            "Modify Firmware Hash to Bypass Verification"
+          ],
+          "Rollback Attack": [
+            "Force Downgrade to Vulnerable Firmware",
+            "Exploit Insecure Version Control"
+          ],
+          "Malicious Binary Injection": [
+            "Replace Executable with Backdoored Binary",
+            "Patch Bootloader to Accept Unsigned Code"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive Charging Port",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploiting flaws in charging communication protocols",
+            "Manipulating handshake sequences"
+          ],
+          "Interface Abuse": [
+            "Direct access via exposed maintenance ports (USB/Ethernet)",
+            "Physical tampering with charging connectors"
+          ],
+          "User Trickery": [
+            "Phishing via fake charging station interfaces",
+            "Social engineering to gain physical access"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Abusing default or weak access controls",
+            "Privilege creep through accumulated rights"
+          ],
+          "Backdoor Access": [
+            "Exploiting hardcoded credentials",
+            "Leveraging undocumented service accounts"
+          ],
+          "Unvalidated Access": [
+            "Bypassing authentication on charging management APIs",
+            "Session fixation to escalate privileges"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flooding charging port with excessive protocol messages",
+            "Broadcast storms on charging network"
+          ],
+          "Crash Triggering": [
+            "Sending malformed packets to induce software crash",
+            "Triggering protocol state machine faults"
+          ],
+          "Buffer Overrun": [
+            "Exploiting unchecked input buffers in firmware",
+            "Injecting oversized payloads via charging interface"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting session logs from maintenance ports",
+            "Accessing debug logs with sensitive data"
+          ],
+          "Session Hijack": [
+            "Intercepting active charging sessions",
+            "Replay attacks on session tokens"
+          ],
+          "Man-in-the-Middle": [
+            "Eavesdropping on vehicle-to-charger communications",
+            "Injecting malicious relays between charger and backend"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Uploading malicious firmware via insecure update process",
+            "Modifying update packages in transit"
+          ],
+          "Rollback Attack": [
+            "Forcing downgrade to vulnerable firmware version",
+            "Exploiting lack of version checks in update logic"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting unauthorized executables into firmware storage",
+            "Abusing debug or developer interfaces for code injection"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "ADAS ECU Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit UDS diagnostic session via CAN bus",
+            "Replay or fuzz diagnostic messages to trigger unintended states"
+          ],
+          "Interface Abuse": [
+            "Exploit insecure telematics/TCU interface",
+            "Abuse exposed debug or maintenance ports"
+          ],
+          "User Trickery": [
+            "Phishing via in-vehicle infotainment prompts",
+            "Social engineering to gain physical access for OBD-II exploitation"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit excessive default privileges in ADAS software",
+            "Abuse lack of access control on internal APIs"
+          ],
+          "Backdoor Access": [
+            "Leverage hardcoded credentials in firmware",
+            "Exploit undocumented maintenance accounts"
+          ],
+          "Unvalidated Access": [
+            "Bypass authentication checks in ADAS services",
+            "Exploit privilege creep from legacy software updates"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flood CAN bus with high-frequency messages",
+            "Exploit diagnostic session to lock out normal operation"
+          ],
+          "Crash Triggering": [
+            "Send malformed packets to crash protocol handlers",
+            "Exploit buffer overrun in ADAS communication stack"
+          ],
+          "Fault Injection": [
+            "Inject voltage glitches via physical interface",
+            "Manipulate sensor data to trigger safety shutdown"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract sensitive logs via diagnostic access",
+            "Abuse maintenance mode to dump memory contents"
+          ],
+          "Session Hijack": [
+            "Intercept session tokens over insecure wireless link",
+            "Replay session credentials to access restricted data"
+          ],
+          "Man-in-the-Middle": [
+            "Perform MITM on OTA update channel",
+            "Intercept and relay CAN messages to extract telemetry"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Replace OTA update with malicious firmware",
+            "Exploit weak hash/integrity checks in update process"
+          ],
+          "Rollback Attack": [
+            "Force downgrade to vulnerable firmware version",
+            "Exploit lack of version enforcement in update logic"
+          ],
+          "Malicious Binary Injection": [
+            "Inject code via debug interface during maintenance",
+            "Exploit insecure bootloader to flash unauthorized binaries"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Remote Control App Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Replay attacks on remote control protocol",
+            "Injection of malformed CAN bus commands"
+          ],
+          "Interface Abuse": [
+            "Exploiting insecure API endpoints",
+            "Manipulating Bluetooth stack vulnerabilities"
+          ],
+          "User Trickery": [
+            "Phishing for app credentials",
+            "Social engineering to install malicious plugins"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Abusing excessive app permissions",
+            "Escalating privileges via unvalidated access controls"
+          ],
+          "Backdoor Access": [
+            "Leveraging hardcoded credentials",
+            "Activating undocumented debug interfaces"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Sending excessive remote unlock requests",
+            "Flooding vehicle telemetry channels"
+          ],
+          "Crash Triggering": [
+            "Exploiting buffer overrun in app communication",
+            "Triggering unhandled exceptions via malformed data"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting diagnostic logs from app storage",
+            "Harvesting trip history reports"
+          ],
+          "Session Hijack": [
+            "Intercepting session tokens over insecure HTTP",
+            "Replaying authentication messages"
+          ],
+          "Man-in-the-Middle": [
+            "Eavesdropping on app-to-vehicle communication",
+            "Capturing live CAN traffic via OBD dongle"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Uploading malicious firmware via vulnerable update system",
+            "Replacing legitimate update files with trojanized versions"
+          ],
+          "Rollback Attack": [
+            "Downgrading firmware to exploit known vulnerabilities",
+            "Forcing app to accept outdated insecure binaries"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting unauthorized code into app plugins",
+            "Persisting malware through update mechanism"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive Voice Assistant Integration",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploiting insecure voice assistant communication protocols",
+            "Replay attacks on authentication messages"
+          ],
+          "Interface Abuse": [
+            "Abusing Bluetooth or WiFi pairing to inject commands",
+            "Leveraging exposed APIs for unauthorized access"
+          ],
+          "User Trickery": [
+            "Hidden voice command injection via media playback",
+            "Phishing prompts to elicit sensitive voice input"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Abusing overly broad access rights in voice assistant software",
+            "Privilege creep through incremental permission grants"
+          ],
+          "Backdoor Access": [
+            "Exploiting hardcoded credentials in integration modules",
+            "Leveraging undocumented debug interfaces"
+          ],
+          "Unvalidated Access": [
+            "Bypassing authentication checks in voice assistant routines",
+            "Session fixation to inherit elevated privileges"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flooding voice assistant with rapid command sequences",
+            "Overloading network interfaces with malformed requests"
+          ],
+          "Crash Triggering": [
+            "Sending malformed audio payloads to crash speech recognition",
+            "Triggering resource exhaustion via repeated activation"
+          ],
+          "Buffer Overrun": [
+            "Exploiting buffer overflow in voice command parsing",
+            "Stack smashing through oversized audio input"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting voice interaction logs from storage",
+            "Harvesting debug logs containing sensitive data"
+          ],
+          "Session Hijack": [
+            "Intercepting active voice assistant sessions",
+            "Token theft via insecure session management"
+          ],
+          "Man-in-the-Middle": [
+            "Intercepting voice data over unsecured wireless links",
+            "Injecting malicious responses into voice assistant traffic"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supplying malicious firmware during OTA updates",
+            "Exploiting weak update integrity checks"
+          ],
+          "Rollback Attack": [
+            "Forcing downgrade to vulnerable firmware version",
+            "Bypassing update version validation"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting unauthorized executables via USB or network",
+            "Replacing legitimate voice assistant binaries"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Digital Cockpit Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "CAN Bus Injection",
+            "MOST Network Spoofing"
+          ],
+          "Interface Abuse": [
+            "Infotainment API Exploit",
+            "Bluetooth Stack Overflow"
+          ],
+          "User Trickery": [
+            "Malicious Voice Command",
+            "Phishing via Touchscreen"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Unvalidated Access to System Files",
+            "Privilege Creep via Feature Update"
+          ],
+          "Backdoor Access": [
+            "Hardcoded Credentials Discovery",
+            "Hidden Debug Interface Activation"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "CAN Frame Flooding",
+            "Ethernet Packet Storm"
+          ],
+          "Crash Triggering": [
+            "Malformed Media File Injection",
+            "Faulty Firmware Update"
+          ],
+          "Buffer Overrun": [
+            "Instrument Cluster Memory Exhaustion",
+            "Infotainment Stack Overflow"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized Access to System Logs",
+            "Remote Log Extraction via API"
+          ],
+          "Session Hijack": [
+            "Infotainment Session Token Theft",
+            "Wireless Protocol Replay Attack"
+          ],
+          "Man-in-the-Middle": [
+            "Intercepted Telemetry Stream",
+            "Fake OTA Update Server"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious Firmware Package Injection",
+            "Checksum Bypass on Update"
+          ],
+          "Rollback Attack": [
+            "Forced Downgrade to Vulnerable Version",
+            "Exploit Legacy Firmware Flaw"
+          ],
+          "Malicious Binary Injection": [
+            "Custom Payload in Bootloader",
+            "Unauthorized ECU Reflash"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "USB Interface Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Malformed USB descriptors",
+            "Unsupported protocol commands"
+          ],
+          "Interface Abuse": [
+            "Unauthorized device enumeration",
+            "Exploiting alternate USB modes"
+          ],
+          "User Trickery": [
+            "Social engineering for device connection",
+            "Phishing via USB drop attacks"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploiting default access levels",
+            "Bypassing permission checks"
+          ],
+          "Backdoor Access": [
+            "Hardcoded credentials in USB subsystem",
+            "Unvalidated access tokens"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Continuous device connect/disconnect",
+            "Bulk data transfer overload"
+          ],
+          "Crash Triggering": [
+            "Sending malformed packets",
+            "Triggering firmware exception handling"
+          ],
+          "Buffer Overrun": [
+            "Oversized payload injection",
+            "Stack overflow via USB input"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting system logs via USB",
+            "Dumping diagnostic data"
+          ],
+          "Session Hijack": [
+            "Intercepting active USB sessions",
+            "Replay attacks on session tokens"
+          ],
+          "Man-in-the-Middle": [
+            "USB proxy device interception",
+            "Data sniffing during transfer"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supplying malicious firmware update",
+            "Corrupting update integrity checks"
+          ],
+          "Rollback Attack": [
+            "Forcing downgrade to vulnerable firmware",
+            "Exploiting legacy update mechanisms"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting unauthorized executable via USB",
+            "Overwriting legitimate firmware binaries"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Automotive HDMI Port Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Abuse of HDMI-CEC commands to control connected ECUs",
+            "Exploiting unencrypted HDMI data channels for injection"
+          ],
+          "Interface Abuse": [
+            "Connecting rogue HDMI devices to trigger unintended operations",
+            "Leveraging debug/test modes exposed via HDMI"
+          ],
+          "User Trickery": [
+            "Social engineering to convince user to connect malicious HDMI device",
+            "Phishing via on-screen prompts from compromised HDMI input"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Gaining access via default or weak HDMI device permissions",
+            "Escalating privileges through insecure HDMI port configuration"
+          ],
+          "Backdoor Access": [
+            "Exploiting undocumented HDMI commands for system access",
+            "Leveraging manufacturer test/debug backdoors"
+          ],
+          "Unvalidated Access": [
+            "Bypassing authentication on HDMI-connected control modules",
+            "Accessing restricted features via HDMI without proper checks"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Sending excessive HDMI-CEC messages to overwhelm ECUs",
+            "Flooding the HDMI bus to disrupt video and control signals"
+          ],
+          "Crash Triggering": [
+            "Injecting malformed HDMI frames to crash display processors",
+            "Exploiting buffer overflows in HDMI firmware"
+          ],
+          "Buffer Overrun": [
+            "Sending oversized EDID data to overflow buffers",
+            "Triggering memory exhaustion via repeated HDMI handshakes"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting system logs via HDMI debug channels",
+            "Harvesting event logs from infotainment through HDMI"
+          ],
+          "Session Hijack": [
+            "Intercepting active HDMI sessions to capture sensitive data",
+            "Hijacking HDMI communication to redirect data streams"
+          ],
+          "Man-in-the-Middle": [
+            "Placing a device between HDMI source and sink to capture data",
+            "Eavesdropping on HDMI signals using electromagnetic side-channels"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supplying malicious firmware updates via HDMI interface",
+            "Replacing legitimate update files with compromised versions"
+          ],
+          "Rollback Attack": [
+            "Forcing downgrade to vulnerable HDMI firmware",
+            "Exploiting lack of version checks in HDMI firmware updates"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting payloads into HDMI controller firmware",
+            "Abusing HDMI bootloader to execute unauthorized code"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Media Player Interface - Automotive IVI",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Malformed Media File Injection",
+            "Bluetooth Stack Exploit"
+          ],
+          "Interface Abuse": [
+            "USB Port Shell Script Execution",
+            "UPnP Service Manipulation"
+          ],
+          "User Trickery": [
+            "Social Engineering via Fake Update Prompt",
+            "Trojanized CD/USB Media"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Unvalidated Access to Restricted Functions",
+            "Privilege Creep via Third-Party App"
+          ],
+          "Backdoor Access": [
+            "Hardcoded Credentials Extraction",
+            "Hidden Debug Interface Activation"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Bluetooth Connection Spam",
+            "CAN Bus Packet Overload"
+          ],
+          "Crash Triggering": [
+            "Malformed MP3 File Crash",
+            "Firmware Fault Injection"
+          ],
+          "Buffer Overrun": [
+            "USB Media Buffer Overflow",
+            "Network Stack Overflow"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized Access to Playback Logs",
+            "Extraction of System Event Logs"
+          ],
+          "Session Hijack": [
+            "Bluetooth Pairing Session Takeover",
+            "Wi-Fi Streaming Session Interception"
+          ],
+          "Man-in-the-Middle": [
+            "Intercepted Media Stream",
+            "Credential Theft via MITM"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious Firmware via USB Update",
+            "Altered OTA Update Package"
+          ],
+          "Rollback Attack": [
+            "Downgrade to Vulnerable Firmware",
+            "Bypass Update Verification"
+          ],
+          "Malicious Binary Injection": [
+            "Direct Binary Injection via Debug Port",
+            "Executable Payload in Media File"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "E-call System Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "CAN Bus Injection",
+            "DSRC Message Spoofing"
+          ],
+          "Interface Abuse": [
+            "Bluetooth Unauthorized Access",
+            "Wi-Fi Hotspot Exploitation"
+          ],
+          "User Trickery": [
+            "Phishing via Telematics App",
+            "Social Engineering for Remote Access"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Unvalidated Access Control",
+            "Privilege Creep via Software Update"
+          ],
+          "Backdoor Access": [
+            "Hardcoded Credentials in Firmware",
+            "Default Admin Interfaces"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "CAN Bus Flood Attack",
+            "Telematics Message Overload"
+          ],
+          "Crash Triggering": [
+            "Malformed Packet Injection",
+            "Buffer Overrun in E-call Handler"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized Access to Event Logs",
+            "Extraction via OBD-II Port"
+          ],
+          "Session Hijack": [
+            "Man-in-the-Middle on Cellular Link",
+            "Replay Attack on E-call Session"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious OTA Update Injection",
+            "Supply Chain Compromise of Update Server"
+          ],
+          "Rollback Attack": [
+            "Downgrade to Vulnerable Firmware",
+            "Bypass of Update Integrity Checks"
+          ],
+          "Malicious Binary Injection": [
+            "Custom Payload via Physical Access",
+            "Remote Exploit of Firmware Loader"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Telematics Cloud API Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploit insecure telematics protocol implementation",
+            "Replay attack on telematics message exchange"
+          ],
+          "Interface Abuse": [
+            "Manipulate undocumented API endpoints",
+            "Bypass authentication via exposed debug interface"
+          ],
+          "User Trickery": [
+            "Phishing for telematics cloud credentials",
+            "Social engineering to induce malicious API actions"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Exploit hardcoded credentials in cloud API",
+            "Privilege creep via excessive API token scopes"
+          ],
+          "Backdoor Access": [
+            "Leverage undocumented admin API functions",
+            "Exploit unvalidated access to privileged endpoints"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Send excessive requests to telematics API endpoints",
+            "Automated botnet traffic targeting cloud API"
+          ],
+          "Crash Triggering": [
+            "Inject malformed payloads to crash API service",
+            "Exploit buffer overrun in telematics message handler"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract sensitive data from cloud API logs",
+            "Automated scraping of telemetry event logs"
+          ],
+          "Session Hijack": [
+            "Intercept session tokens via insecure transmission",
+            "Replay valid session to access user data"
+          ],
+          "Man-in-the-Middle": [
+            "Intercept API traffic to steal credentials",
+            "Manipulate telemetry data in transit"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Upload malicious firmware via cloud API update",
+            "Replace legitimate update with crafted payload"
+          ],
+          "Rollback Attack": [
+            "Force downgrade to vulnerable firmware version",
+            "Exploit version control flaws in update process"
+          ],
+          "Malicious Binary Injection": [
+            "Inject unauthorized executable into OTA update",
+            "Modify firmware image to include backdoor"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Vehicle Configuration API Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Malformed API request injection",
+            "Replay attack on configuration protocol"
+          ],
+          "Interface Abuse": [
+            "Unauthorized access via undocumented endpoints",
+            "API parameter tampering"
+          ],
+          "User Trickery": [
+            "Phishing for API credentials",
+            "Social engineering to induce unsafe configuration changes"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded credentials exploitation",
+            "Privilege creep via role misassignment"
+          ],
+          "Backdoor Access": [
+            "Hidden debug interface activation",
+            "Unvalidated access token usage"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "API request spamming",
+            "Bulk configuration change requests"
+          ],
+          "Crash Triggering": [
+            "Malformed payload causing service crash",
+            "Resource exhaustion via recursive calls"
+          ],
+          "Buffer Overrun": [
+            "Oversized configuration data injection",
+            "Boundary value abuse in API fields"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Unauthorized download of configuration logs",
+            "Extraction of debug traces containing sensitive data"
+          ],
+          "Session Hijack": [
+            "Stealing active API session tokens",
+            "Session fixation attack on configuration endpoints"
+          ],
+          "Man-in-the-Middle": [
+            "Intercepting configuration API traffic",
+            "TLS downgrade to expose sensitive data"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Uploading malicious firmware via API",
+            "Checksum bypass for unauthorized update"
+          ],
+          "Rollback Attack": [
+            "Forcing downgrade to vulnerable firmware",
+            "Exploiting version control flaws in update process"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting unauthorized executable payloads",
+            "Overwriting legitimate firmware with crafted binary"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "EV Charger Communication Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Exploiting insecure charging protocol (e.g., OCPP, ISO 15118)",
+            "Manipulating handshake or authentication steps"
+          ],
+          "Interface Abuse": [
+            "Abusing exposed diagnostic ports",
+            "Leveraging insecure APIs for unauthorized access"
+          ],
+          "User Trickery": [
+            "Phishing via charger mobile app",
+            "Social engineering to obtain access credentials"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded credentials in charger firmware",
+            "Privilege creep through excessive access rights"
+          ],
+          "Backdoor Access": [
+            "Exploiting undocumented maintenance interfaces",
+            "Leveraging vendor debug backdoors"
+          ],
+          "Unvalidated Access": [
+            "Bypassing access control checks",
+            "Session fixation to gain elevated privileges"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "Flooding charger with excessive protocol messages",
+            "Broadcast storm on charger network"
+          ],
+          "Crash Triggering": [
+            "Sending malformed packets to crash charger firmware",
+            "Triggering buffer overrun in communication handler"
+          ],
+          "Buffer Overrun": [
+            "Exploiting unchecked input in protocol parsing",
+            "Overflowing charger memory via crafted payloads"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extracting charger logs containing credentials",
+            "Dumping historical charging session data"
+          ],
+          "Session Hijack": [
+            "Intercepting active charger-EV sessions",
+            "Replaying session tokens for unauthorized access"
+          ],
+          "Man-in-the-Middle": [
+            "Intercepting charger-EV communication for sensitive data",
+            "Manipulating data in transit to leak user information"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Supplying malicious firmware update via insecure channel",
+            "Modifying update package to inject backdoor"
+          ],
+          "Rollback Attack": [
+            "Forcing charger to install outdated vulnerable firmware",
+            "Exploiting lack of update integrity checks"
+          ],
+          "Malicious Binary Injection": [
+            "Injecting unauthorized code into charger firmware",
+            "Replacing legitimate firmware with attacker-controlled binary"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "Smart Key System Compromise",
+      "tree": {
+        "Entry Point Exploitation": {
+          "Protocol Misuse": [
+            "Replay Attack on RF Signal",
+            "Roll Jam Attack on Rolling Codes"
+          ],
+          "Interface Abuse": [
+            "Bluetooth Stack Exploit",
+            "CAN Bus Injection"
+          ],
+          "User Trickery": [
+            "Phishing for Key Fob Credentials",
+            "Social Engineering for Keyless Entry"
+          ]
+        },
+        "Privilege Escalation": {
+          "Misconfigured Permissions": [
+            "Hardcoded Credentials in Firmware",
+            "Privilege Creep via Software Update"
+          ],
+          "Backdoor Access": [
+            "Unvalidated API Access",
+            "Hidden Debug Interface"
+          ]
+        },
+        "Denial of Service": {
+          "Message Flooding": [
+            "RF Signal Jamming",
+            "CAN Bus Saturation"
+          ],
+          "Crash Triggering": [
+            "Malformed Command Injection",
+            "Protocol Buffer Overrun"
+          ]
+        },
+        "Data Exfiltration": {
+          "Log Dumping": [
+            "Extract Key Fob Usage Logs",
+            "Dump Authentication Events"
+          ],
+          "Session Hijack": [
+            "Intercept Key Fob Session",
+            "Replay Authentication Tokens"
+          ],
+          "Man-in-the-Middle": [
+            "Relay Attack on Keyless Entry",
+            "Intercept Encrypted Communication"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Tampered Update File": [
+            "Malicious OTA Update",
+            "Update File Replacement"
+          ],
+          "Rollback Attack": [
+            "Downgrade Firmware to Vulnerable Version",
+            "Exploit Legacy Protocols"
+          ],
+          "Malicious Binary Injection": [
+            "Inject Backdoor into Firmware",
+            "Modify Bootloader for Persistence"
+          ]
+        }
+      }
+    },
+    {
+      "attack_surface": "CAN Bus Automotive System",
+      "tree": {
+        "Message Injection": {
+          "Replay Attack": [
+            "Capturing Packets",
+            "Resending Packets"
+          ],
+          "Arbitrary Message Injection": [
+            "Crafting Messages",
+            "Injecting Malicious Commands"
+          ]
+        },
+        "Denial of Service": {
+          "Bus Flooding": [
+            "Continuous Message Sending",
+            "Resource Exhaustion"
+          ],
+          "Error Frame Injection": [
+            "Error Frame Flood",
+            "Bus Off State"
+          ]
+        },
+        "Spoofing": {
+          "ID Spoofing": [
+            "Forged IDs",
+            "Masquerading"
+          ],
+          "Timing Spoofing": [
+            "Delay Injection",
+            "Replay Timing Manipulation"
+          ]
+        },
+        "Eavesdropping": {
+          "Passive Listening": [
+            "Bus Monitoring",
+            "Signal Interception"
+          ],
+          "Data Capture": [
+            "Message Logging",
+            "Packet Analysis"
+          ]
+        },
+        "Fault Injection": {
+          "Voltage Manipulation": [
+            "Power Supply Interruption",
+            "Voltage Spike"
+          ],
+          "Clock Glitching": [
+            "Clock Signal Interference",
+            "Timing Violation"
+          ]
+        },
+        "Firmware Manipulation": {
+          "Malicious Firmware Update": [
+            "Tampered Firmware File",
+            "OTA Exploitation"
+          ],
+          "Firmware Downgrade": [
+            "Rollback Exploit",
+            "Signature Bypass"
+          ]
+        },
+        "Physical Access": {
+          "OBD-II Port Exploit": [
+            "Sniffing Traffic",
+            "Sending Commands"
+          ],
+          "ECU Extraction": [
+            "Direct Flash Access",
+            "Hardware Debugging Interface"
+          ]
+        }
+      }
+    }
+  ],
+  "errors": []
+}

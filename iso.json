@@ -1,0 +1,257 @@
+{
+  "ISO_21434_TARA": {
+    "purpose": "Provide a detailed, machine-readable reference for implementing and automating Threat Analysis and Risk Assessment (TARA) workflows in accordance with ISO/SAE 21434, enabling structured asset, threat, and risk modeling for automotive cybersecurity.",
+    
+    "overall_process": {
+      "description": "The TARA process is iterative and continues throughout the concept, development, production, and operational phases of the vehicle lifecycle. Each iteration refines risk estimations as new data or design changes appear.",
+      "phases": [
+        "Item Definition",
+        "Asset Identification",
+        "Damage Scenario Definition",
+        "Threat Scenario Definition",
+        "Attack Feasibility Evaluation",
+        "Risk Determination",
+        "Risk Treatment & Cybersecurity Goal Derivation"
+      ],
+      "inputs": [
+        "System architecture and communication topology",
+        "ECU specifications and interfaces",
+        "Network protocols and connectivity details",
+        "Functional safety concepts (if applicable)",
+        "OEM cybersecurity policies and past risk data"
+      ],
+      "outputs": [
+        "Cybersecurity goals and requirements",
+        "Risk matrix and classification results",
+        "Mitigation and control measures",
+        "Traceability records linking risks to assets and mitigations"
+      ]
+    },
+
+    "main_clauses": {
+      "8": {
+        "title": "Cybersecurity Risk Management Framework",
+        "description": "Clause 8 defines the procedural backbone of risk management for the entire vehicle lifecycle, ensuring continuous monitoring and treatment of cybersecurity threats.",
+        "objectives": [
+          "Define a consistent approach to cybersecurity risk management.",
+          "Ensure traceability between threats, assets, risks, and mitigations.",
+          "Enable risk-based decision-making across design and operation."
+        ],
+        "steps": [
+          {
+            "name": "Asset Identification",
+            "objective": "List and characterize all assets (hardware, software, communication, or data) that need protection.",
+            "expected_output": ["Asset inventory", "Asset security properties mapping"],
+            "tools_possible": ["System model parser", "ECU architecture map extractor"],
+            "relationships": ["Clause 15.3.2"]
+          },
+          {
+            "name": "Damage Scenarios",
+            "objective": "Describe potential harm if a security property of an asset is violated.",
+            "impact_factors": ["Safety", "Operational", "Privacy", "Financial", "Regulatory"],
+            "expected_output": ["List of damage scenarios with impact ratings"],
+            "relationships": ["Clause 15.3.3"]
+          },
+          {
+            "name": "Threat Scenarios",
+            "objective": "Identify potential attack paths or methods that could exploit each damage scenario.",
+            "expected_output": ["Threat scenario list with entry points and affected assets"],
+            "relationships": ["Clause 15.3.4"]
+          },
+          {
+            "name": "Attack Feasibility Evaluation",
+            "objective": "Quantify the ease or difficulty of executing each threat using predefined criteria (expertise, equipment, access, etc.).",
+            "expected_output": ["Feasibility scoring table"],
+            "relationships": ["Clause 15.3.5"]
+          },
+          {
+            "name": "Risk Determination",
+            "objective": "Combine impact and feasibility to calculate a total risk score and classification.",
+            "expected_output": ["Risk matrix with Low/Medium/High classification"],
+            "relationships": ["Clause 15.3.6"]
+          },
+          {
+            "name": "Risk Treatment and Cybersecurity Goals",
+            "objective": "Select and implement mitigation strategies, derive cybersecurity goals ensuring residual risk is within acceptable limits.",
+            "expected_output": ["Cybersecurity goals", "Treatment plan with mitigation mapping"],
+            "relationships": ["Clause 15.3.7"]
+          }
+        ]
+      },
+
+      "9": {
+        "title": "Item Definition and Cybersecurity Goals",
+        "description": "Clause 9 defines how to characterize the 'item' (system or ECU) under analysis. This context anchors the TARA by specifying functional boundaries and assumptions.",
+        "fields": {
+          "ItemName": "Unique name or identifier of the ECU, sub-system, or software component.",
+          "PurposeFunction": "Detailed functional description including dependencies on sensors, actuators, and networks.",
+          "OperationalEnvironment": "Operating context: powertrain, infotainment, ADAS, V2X, etc., including communication stacks (CAN, LIN, Ethernet, etc.).",
+          "Interfaces": "List of logical and physical interfaces; include type, direction, protocol, and access level (e.g., CAN RX/TX, OTA endpoint).",
+          "Dependencies": "External systems, ECUs, or backend services relied upon (e.g., GPS, cloud server, sensor network).",
+          "Assumptions": "Constraints or preconditions assumed for cybersecurity validity (e.g., physical access restrictions, trusted suppliers)."
+        },
+        "outputs": {
+          "CybersecurityGoals": "Top-level goals ensuring high-level protection of assets. Example: 'Ensure OTA firmware authenticity and integrity to prevent unauthorized updates.'"
+        },
+        "examples": [
+          {
+            "ItemName": "TCU (Telematics Control Unit)",
+            "PurposeFunction": "Manage vehicle connectivity, remote diagnostics, and OTA updates.",
+            "OperationalEnvironment": "Connected to backend via cellular network; interfaces with CAN gateway.",
+            "Interfaces": ["CAN", "Ethernet", "Cellular", "Bluetooth"],
+            "Dependencies": ["Cloud services", "Backend authentication server"],
+            "Assumptions": ["Physical access to TCU housing is restricted."]
+          }
+        ]
+      },
+
+      "15": {
+        "title": "Cybersecurity Assurance and Confirmation Measures (TARA-Relevant)",
+        "description": "Clause 15 ensures that cybersecurity activities, including TARA, are verified and validated against ISO 21434 requirements, ensuring consistency, traceability, and completeness.",
+        "subclauses": {
+          "15.3.2": {
+            "title": "Asset Identification",
+            "guidelines": [
+              "Identify assets relevant to cybersecurity within the item.",
+              "Assign applicable security properties (Confidentiality, Integrity, Availability, Authenticity).",
+              "Document rationale for protection and assign owner/responsibility."
+            ],
+            "example": [
+              { "Asset": "Firmware & Bootloader", "Property": ["Integrity", "Authenticity"], "Rationale": "Prevent code tampering or unauthorized rollbacks." },
+              { "Asset": "Network Encryption Keys", "Property": ["Confidentiality"], "Rationale": "Prevent unauthorized access to backend or CAN messages." }
+            ],
+            "metadata": {
+              "related_steps": ["8.Asset Identification"],
+              "output_format": "AssetList.json",
+              "traceable_to": "ItemDefinition"
+            }
+          },
+
+          "15.3.3": {
+            "title": "Damage Scenarios and Impact Rating",
+            "guidelines": [
+              "For each asset, define damage scenarios describing the consequence of losing a specific security property.",
+              "Rate the impact on each category using a 1–5 scale (1 = negligible, 5 = severe).",
+              "Document assumptions and justification for assigned ratings."
+            ],
+            "impact_categories": {
+              "Safety": "Threats leading to unsafe vehicle behavior or driver injury.",
+              "Operational": "Loss or degradation of essential vehicle functions.",
+              "Privacy": "Leakage or misuse of user data.",
+              "Financial": "Costs, warranty claims, or brand damage.",
+              "Regulatory": "Violations of compliance requirements."
+            },
+            "example": [
+              { "Asset": "Firmware", "DamageScenario": "Compromised firmware allows unsafe braking behavior", "ImpactArea": "Safety", "ImpactLevel": 5 }
+            ],
+            "metadata": {
+              "input_source": "AssetList.json",
+              "output_target": "DamageScenarioTable.json"
+            }
+          },
+
+          "15.3.4": {
+            "title": "Threat Scenarios",
+            "guidelines": [
+              "Identify possible attack mechanisms, vectors, or paths leading to the damage scenario.",
+              "Map each threat to relevant assets and damage outcomes.",
+              "Label each threat with unique ID (TS-XX) for traceability."
+            ],
+            "example": [
+              { "ThreatID": "TS-01", "Scenario": "Malicious OTA firmware upload", "EntryPoint": "Backend → OTA interface", "AffectedAsset": "Firmware", "DamageScenario": "Compromised firmware integrity" }
+            ],
+            "metadata": {
+              "output_target": "ThreatScenarioTable.json",
+              "supports": ["AttackFeasibilityEvaluation"]
+            }
+          },
+
+          "15.3.5": {
+            "title": "Attack Feasibility Evaluation",
+            "description": "Quantify how achievable a threat is based on attacker effort, expertise, and access.",
+            "factors": {
+              "Expertise": ["Layman", "Proficient", "Expert", "Multiple Experts"],
+              "Equipment": ["Standard", "Specialized", "Custom", "Laboratory"],
+              "Knowledge": ["Public", "Restricted", "Sensitive", "Critical"],
+              "Access": ["Remote", "Adjacent", "Physical"],
+              "Time": ["Short (<1h)", "Medium (<1d)", "Long (<1w)", "Very Long (>1m)"]
+            },
+            "scoring_rules": {
+              "1": "Very difficult or infeasible",
+              "2": "Requires expert skill and specialized equipment",
+              "3": "Moderate difficulty, possible with effort",
+              "4": "Easily achievable by proficient attacker",
+              "5": "Trivial or publicly exploitable"
+            },
+            "example": [
+              { "ThreatID": "TS-02", "Expertise": "Proficient", "Equipment": "Standard", "Access": "Remote", "Time": "Short", "Feasibility": 4 }
+            ],
+            "metadata": {
+              "input_source": "ThreatScenarioTable.json",
+              "output_target": "FeasibilityTable.json"
+            }
+          },
+
+          "15.3.6": {
+            "title": "Risk Determination",
+            "formula": "RiskScore = Impact × Feasibility",
+            "classification": {
+              "Low": "1–5",
+              "Medium": "6–10",
+              "High": "11–25"
+            },
+            "matrix_definition": "5×5 grid mapping impact (rows) vs feasibility (columns).",
+            "guidelines": [
+              "Compute risk for each threat scenario.",
+              "Classify the risk according to the matrix.",
+              "Prioritize high and medium risks for treatment."
+            ],
+            "example": [
+              { "ThreatID": "TS-03", "Impact": 5, "Feasibility": 2, "RiskScore": 10, "RiskLevel": "Medium" }
+            ],
+            "metadata": {
+              "inputs": ["FeasibilityTable.json", "DamageScenarioTable.json"],
+              "output_target": "RiskMatrix.json"
+            }
+          },
+
+          "15.3.7": {
+            "title": "Risk Treatment and Cybersecurity Goals",
+            "strategies": ["Reduce", "Avoid", "Transfer", "Accept"],
+            "guidelines": [
+              "Select treatment strategy based on residual risk acceptability.",
+              "Document mitigation measures (technical or procedural).",
+              "Derive cybersecurity goals ensuring the item’s residual risk is acceptable.",
+              "Link each mitigation to responsible development activity (HW, SW, Process)."
+            ],
+            "example": [
+              { "ThreatID": "TS-01", "RiskLevel": "High", "Treatment": "Reduce", "Mitigation": ["Secure Boot", "Firmware Signature Verification", "HSM Key Storage"], "Goal": "Ensure firmware integrity and authenticity during OTA updates." }
+            ],
+            "metadata": {
+              "input_source": "RiskMatrix.json",
+              "output_target": "CybersecurityGoals.json"
+            }
+          }
+        }
+      }
+    },
+
+    "supporting_concepts": {
+      "ImpactCategories": {
+        "Safety": "Impact on vehicle or passenger safety, leading to potential harm.",
+        "Operational": "Impact on availability or performance of functions.",
+        "Privacy": "Impact on confidentiality of data.",
+        "Financial": "Impact on cost, losses, or brand reputation.",
+        "Regulatory": "Impact on compliance or certification obligations."
+      },
+      "RiskMatrix": {
+        "definition": "A 5×5 matrix mapping Impact (1–5) against Feasibility (1–5) to yield risk classification.",
+        "usage": "Used for risk prioritization and treatment planning.",
+        "notes": "Thresholds may vary per OEM or supplier."
+      },
+      "ResidualRisk": "Risk remaining after applying mitigation measures, to be documented and monitored during operation.",
+      "CybersecurityGoal": "High-level requirement ensuring the protection of assets against identified and treated threats.",
+      "TraceabilityRequirement": "Every cybersecurity goal must be traceable to an identified threat scenario and asset through the TARA chain."
+    }
+  }
+}
